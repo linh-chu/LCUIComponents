@@ -8,7 +8,7 @@ The framework supports UI components showing on top of the current content view.
 DESC
 
     s.homepage         = 'https://github.com/linhcn/LCUIComponents'
-    s.license          = { :type => 'MIT', :file => 'LICENSE' }
+    s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
     s.author           = { 'Linh Chu' => 'cnhlinh@gmail.com' }
     s.source           = { :git => 'https://github.com/linhcn/LCUIComponents.git', :tag => s.version.to_s }
 
