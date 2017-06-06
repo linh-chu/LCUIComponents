@@ -15,12 +15,14 @@
 		878DE0141EE6439B004CA4FB /* ViewControllerA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DE0111EE6439B004CA4FB /* ViewControllerA.swift */; };
 		878DE0191EE643DD004CA4FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DE0161EE643DD004CA4FB /* AppDelegate.swift */; };
 		878DE01B1EE64485004CA4FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877F4A271ED7E16800D33501 /* LaunchScreen.storyboard */; };
+		878DE01E1EE64830004CA4FB /* img_bubble_page.png in Resources */ = {isa = PBXBuildFile; fileRef = 878DE01C1EE64830004CA4FB /* img_bubble_page.png */; };
+		878DE01F1EE64830004CA4FB /* img_bubble_popover.png in Resources */ = {isa = PBXBuildFile; fileRef = 878DE01D1EE64830004CA4FB /* img_bubble_popover.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87683E8B1ECB2283005E2F14 /* LCUIComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCUIComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87683EA11ECB2384005E2F14 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Popover.swift; path = Source/Popover.swift; sourceTree = "<group>"; };
-		877F4A261ED7E16800D33501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		877F4A261ED7E16800D33501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		877F4A281ED7E16800D33501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877F4A2A1ED7E16800D33501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		878DE00E1EE6439B004CA4FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		878DE0111EE6439B004CA4FB /* ViewControllerA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerA.swift; sourceTree = "<group>"; };
 		878DE0161EE643DD004CA4FB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878DE0181EE643DD004CA4FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		878DE01C1EE64830004CA4FB /* img_bubble_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_bubble_page.png; sourceTree = "<group>"; };
+		878DE01D1EE64830004CA4FB /* img_bubble_popover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_bubble_popover.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,6 @@
 				878DE0171EE643DD004CA4FB /* SupportingFiles */,
 				878DE00D1EE6439B004CA4FB /* Resources */,
 				878DE00F1EE6439B004CA4FB /* ViewControllers */,
-				877F4A261ED7E16800D33501 /* Assets.xcassets */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -89,6 +92,8 @@
 		878DE00D1EE6439B004CA4FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				878DE01C1EE64830004CA4FB /* img_bubble_page.png */,
+				878DE01D1EE64830004CA4FB /* img_bubble_popover.png */,
 				878DE00E1EE6439B004CA4FB /* Default-568h@2x.png */,
 			);
 			path = Resources;
@@ -116,6 +121,7 @@
 		878DE0171EE643DD004CA4FB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				877F4A261ED7E16800D33501 /* Assets.xcassets */,
 				878DE0181EE643DD004CA4FB /* Info.plist */,
 			);
 			path = SupportingFiles;
@@ -183,6 +189,8 @@
 				878DE01B1EE64485004CA4FB /* LaunchScreen.storyboard in Resources */,
 				877F4A311ED7E16800D33501 /* Main.storyboard in Resources */,
 				877F4A2F1ED7E16800D33501 /* Assets.xcassets in Resources */,
+				878DE01F1EE64830004CA4FB /* img_bubble_popover.png in Resources */,
+				878DE01E1EE64830004CA4FB /* img_bubble_page.png in Resources */,
 				878DE0121EE6439B004CA4FB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

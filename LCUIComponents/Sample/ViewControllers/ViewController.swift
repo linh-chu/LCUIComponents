@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     @IBAction func btnContactTapped(_ sender: UIButton) {
@@ -21,22 +20,17 @@ class ViewController: UIViewController {
         
         let lcVC = LCPopover(for: sender)
         lcVC.delegate = self
+        lcVC.title = "Popover"
         lcVC.arrayData = [(key: 0, value:"a"), (key: 1, value:"b")]
-        lcVC.popoverPresentationController?.delegate = self
+        //lcVC.popoverPresentationController?.delegate = self
         
-        present(lcVC, animated: true, completion: nil)
+        present(lcVC, animated: false, completion: nil)
     }
 }
 
 extension ViewController: LCPopoverDelegate {
     func didSelectData(_ selectedData: KeyValueTuple) {
         print(selectedData.value)
-    }
-}
-
-extension ViewController: UIPopoverPresentationControllerDelegate {
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.none
     }
 }
 
