@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View 1-->
+        <!--View Controller-->
         <scene sceneID="0vG-4K-nRx">
             <objects>
                 <viewController id="gtS-iY-gMs" customClass="ViewController" customModule="LCUIComponents" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,58 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17I-gA-EW7">
-                                <rect key="frame" x="120" y="218" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Navigate to A"/>
-                                <connections>
-                                    <segue destination="KDH-uN-qoG" kind="show" identifier="toASegue" id="Bl4-Sf-hDz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axj-Bu-TFs">
-                                <rect key="frame" x="101" y="134" width="144" height="30"/>
+                                <rect key="frame" x="115" y="318" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Open Contacts"/>
+                                <state key="normal" title="Popover"/>
                                 <connections>
-                                    <action selector="btnContactTapped:" destination="gtS-iY-gMs" eventType="touchUpInside" id="YSN-IS-xJP"/>
+                                    <action selector="btnPopoverTapped:" destination="gtS-iY-gMs" eventType="touchUpInside" id="HyD-ru-TL5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="View 1" id="VbU-n8-hij"/>
+                    <navigationItem key="navigationItem" title="View Controller" id="VbU-n8-hij"/>
+                    <connections>
+                        <outlet property="btnPopover" destination="Axj-Bu-TFs" id="cPy-EY-4P1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvg-9M-cO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087.2" y="155.17241379310346"/>
-        </scene>
-        <!--View 2-->
-        <scene sceneID="hdn-hW-1fe">
-            <objects>
-                <viewController id="KDH-uN-qoG" customClass="ViewControllerA" customModule="LCUIComponents" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5w9-HF-pLM"/>
-                        <viewControllerLayoutGuide type="bottom" id="lQZ-LU-BL5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hkk-CJ-3Fh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehZ-tb-yop">
-                                <rect key="frame" x="135" y="239" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="View 2" id="6im-Hc-6nU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SAS-nw-HMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1781.5999999999999" y="154.27286356821591"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y6z-LF-lId">
