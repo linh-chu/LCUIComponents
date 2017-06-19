@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnPopoverTapped(_ sender: UIButton) {
+//        var controller: Controller? = Controller()
+//        controller!.fetchData()
+//        controller = nil
 //        let a = A()
 //        let array = [(key: a, value:"Cinnamon"),
 //                     (key: a, value:"Cloves"),
@@ -31,14 +34,14 @@ class ViewController: UIViewController {
 //                     (key: a, value:"Turmeric"),
 //                     (key: a, value:"Tamarind")]
         
-        let lcVC = LCPopover<Int>(sender: sender)
-        lcVC.dataList = [(key: 1, value:"Cinnamon"),
-                         (key: 2, value:"Cloves"),
-                         (key: 3, value:"Ginger"),
-                         (key: 4, value:"Turmeric"),
-                         (key: 5, value:"Tamarind")]
-        
-        present(lcVC, animated: true, completion: nil)
+//        let lcVC = LCPopover<Int>(sender: sender)
+//        lcVC.dataList = [(key: 1, value:"Cinnamon"),
+//                         (key: 2, value:"Cloves"),
+//                         (key: 3, value:"Ginger"),
+//                         (key: 4, value:"Turmeric"),
+//                         (key: 5, value:"Tamarind")]
+//        
+//        present(lcVC, animated: true, completion: nil)
     }
 }
 
@@ -59,8 +62,3 @@ extension ViewController: UITextViewDelegate, UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
