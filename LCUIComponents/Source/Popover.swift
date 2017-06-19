@@ -16,13 +16,18 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     // Public properties
     open var sender = UIView()
     open var dataList = [LCTuple<T>]()
-    open var size = CGSize(width: 250, height: 219)
+    open var size: CGSize = CGSize(width: 250, height: 219)
     open var arrowDirection: UIPopoverArrowDirection = .any
-    open var cornerRadius: CGFloat = 20
+    open var borderColor: UIColor = UIColor.clear
+    open var borderWidth: CGFloat = 0
+    open var cornerRadius: CGFloat = 10
+    open var barHeight: CGFloat = 44
+//    open var barColor: UIColor = UIColor(colorLiteralRed: 235/255, green: 235/255, blue: 241/255, alpha: 1)
     open var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 19)
     open var titleColor: UIColor = .black
     open var textFont: UIFont = UIFont.systemFont(ofSize: 17)
     open var textColor: UIColor = .black
+    open var selectedData: LCTuple<T>?
     
     // Public closures
     open var didSelectDataHandler: ((_ selectedData: LCTuple<T>?) -> ())?
@@ -32,13 +37,12 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // Private properties
     fileprivate var tableView: UITableView!
-    fileprivate var displayValues = Array<String>()
     
     init(for sender: UIView, title: String = "", didSelectDataHandler: ((_ selectedData: LCTuple<T>?) -> ())? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .popover
-        setPosition(sender: sender)
+        setSourceView(sender)
         self.sender = sender
         self.title = title
         self.didSelectDataHandler = didSelectDataHandler
@@ -51,9 +55,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        preferredContentSize = size
-        popoverPresentationController?.permittedArrowDirections = arrowDirection
-        setViews()
+        addViews()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -65,7 +67,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - Private Methods
     
     // Set position for the popover coordinating with the sender
-    fileprivate func setPosition(sender: UIView) {
+    fileprivate func setSourceView(_ sender: UIView) {
         guard let popoverPC = popoverPresentationController else { return }
         popoverPC.sourceView = sender
         popoverPC.sourceRect = sender.bounds
@@ -74,13 +76,31 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // Set properties based on options passed to the initializer
     fileprivate func setProperties() {
+        guard let popoverPC = popoverPresentationController else { return }
+        popoverPC.permittedArrowDirections = arrowDirection
+//        popoverPC.backgroundColor = borderColor
+//        popoverPC.containerView?.layer
+        
         // Set corner radius
-        view.superview?.layer.cornerRadius = cornerRadius
-        view.layer.masksToBounds = true
+        view.layer.cornerRadius = cornerRadius
+        view.clipsToBounds = true
+        view.layer.masksToBounds = false
+        view.layer.borderColor = borderColor.cgColor
+        view.layer.borderWidth = borderWidth
+//        view.superview?.layer.cornerRadius = cornerRadius
+        
     }
     
     // Add navigation bar and table view
-    fileprivate func setViews() {
+    fileprivate func addViews() {
+        preferredContentSize = size
+        addNavigationBar()
+        addTableView()
+    }
+    
+    fileprivate func addNavigationBar() {
+        if barHeight == 0 { return }
+        
         // Set title
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
@@ -91,14 +111,16 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         titleLabel.sizeToFit()
         
         // Set navigation bar
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: size.width, height: 44))
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: size.width, height: barHeight))
         let navItem = UINavigationItem()
         navItem.titleView = titleLabel
         navBar.setItems([navItem], animated: true)
+//        navBar.barTintColor = barColor
         view.addSubview(navBar)
-        
+    }
+    
+    fileprivate func addTableView() {
         // Set table view
-        let barHeight: CGFloat = navBar.frame.size.height
         let tableFrame = CGRect(x: 0, y: barHeight, width: size.width, height: size.height - barHeight)
         tableView = UITableView(frame: tableFrame, style: .plain)
         tableView.dataSource = self

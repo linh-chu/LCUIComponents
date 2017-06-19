@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         let lcVC = LCPopover<Int>(for: sender, title: "Spices") { [weak self] selectedData in
             // After data has been selected
-            self?.lblSelectedData.text = "The spice selected: \(selectedData?.value ?? "")"
+            self?.lblSelectedData.text = selectedData?.value ?? ""
         }
         lcVC.dataList = [(key: 1, value:"Cinnamon"),
                          (key: 2, value:"Cloves"),
@@ -33,11 +33,14 @@ class ViewController: UIViewController {
                          (key: 5, value:"Tamarind")]
         lcVC.size = CGSize(width: 250, height: 219)
         lcVC.arrowDirection = .up
-        lcVC.cornerRadius = 20
+//        lcVC.borderColor = .orange
+//        lcVC.borderWidth = 2
+        lcVC.cornerRadius = 0
+        lcVC.barHeight = 44
         lcVC.titleFont = UIFont.boldSystemFont(ofSize: 19)
         lcVC.titleColor = .orange
         lcVC.textFont = UIFont(name: "HelveticaNeue-MediumItalic", size: 17) ?? UIFont.systemFont(ofSize: 17)
-        lcVC.textColor = .orange
+        lcVC.textColor = .black
         
         present(lcVC, animated: true, completion: nil)
     }
