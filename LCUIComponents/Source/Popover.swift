@@ -38,6 +38,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .popover
+        setPosition(sender: sender)
         self.sender = sender
         self.title = title
         self.didSelectDataHandler = didSelectDataHandler
@@ -51,7 +52,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         
         preferredContentSize = size
-        setPosition(sender: sender)
+        popoverPresentationController?.permittedArrowDirections = arrowDirection
         setViews()
     }
     
@@ -65,12 +66,10 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // Set position for the popover coordinating with the sender
     fileprivate func setPosition(sender: UIView) {
-        if let popoverPC = popoverPresentationController {
-            popoverPC.sourceView = sender
-            popoverPC.sourceRect = sender.bounds
-            popoverPC.permittedArrowDirections = arrowDirection
-            popoverPC.delegate = self
-        }
+        guard let popoverPC = popoverPresentationController else { return }
+        popoverPC.sourceView = sender
+        popoverPC.sourceRect = sender.bounds
+        popoverPC.delegate = self
     }
     
     // Set properties based on options passed to the initializer
