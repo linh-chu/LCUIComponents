@@ -33,9 +33,9 @@ class ViewController: UIViewController {
                          (key: 5, value:"Tamarind")]
         lcVC.size = CGSize(width: 250, height: 219)
         lcVC.arrowDirection = .up
-//        lcVC.borderColor = .orange
-//        lcVC.borderWidth = 2
-        lcVC.cornerRadius = 0
+        lcVC.backgroundColor = .orange
+        lcVC.borderWidth = 2
+        lcVC.cornerRadius = 10
         lcVC.barHeight = 44
         lcVC.titleFont = UIFont.boldSystemFont(ofSize: 19)
         lcVC.titleColor = .orange

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87053DC71EF8DE6C00996C30 /* PopoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87053DC61EF8DE6C00996C30 /* PopoverBackgroundView.swift */; };
+		87053DC91EF8E17B00996C30 /* linen.png in Resources */ = {isa = PBXBuildFile; fileRef = 87053DC81EF8E17B00996C30 /* linen.png */; };
+		87053DCB1EF8EEC300996C30 /* img_lc_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87053DCA1EF8EEC300996C30 /* img_lc_logo.png */; };
 		87683EA21ECB2384005E2F14 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87683EA11ECB2384005E2F14 /* Popover.swift */; };
 		877F4A2F1ED7E16800D33501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877F4A261ED7E16800D33501 /* Assets.xcassets */; };
 		877F4A311ED7E16800D33501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877F4A291ED7E16800D33501 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87053DC61EF8DE6C00996C30 /* PopoverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverBackgroundView.swift; path = Source/PopoverBackgroundView.swift; sourceTree = "<group>"; };
+		87053DC81EF8E17B00996C30 /* linen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linen.png; path = Source/linen.png; sourceTree = "<group>"; };
+		87053DCA1EF8EEC300996C30 /* img_lc_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_lc_logo.png; sourceTree = "<group>"; };
 		87683E8B1ECB2283005E2F14 /* LCUIComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCUIComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87683EA11ECB2384005E2F14 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Popover.swift; path = Source/Popover.swift; sourceTree = "<group>"; };
 		877F4A261ED7E16800D33501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -71,7 +77,9 @@
 		87683EA01ECB2343005E2F14 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				87053DC81EF8E17B00996C30 /* linen.png */,
 				87683EA11ECB2384005E2F14 /* Popover.swift */,
+				87053DC61EF8DE6C00996C30 /* PopoverBackgroundView.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 		878DE00D1EE6439B004CA4FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				87053DCA1EF8EEC300996C30 /* img_lc_logo.png */,
 				878DE01C1EE64830004CA4FB /* img_bubble_page.png */,
 				878DE01D1EE64830004CA4FB /* img_bubble_popover.png */,
 				878DE00E1EE6439B004CA4FB /* Default-568h@2x.png */,
@@ -185,9 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				878DE01B1EE64485004CA4FB /* LaunchScreen.storyboard in Resources */,
+				87053DC91EF8E17B00996C30 /* linen.png in Resources */,
 				877F4A311ED7E16800D33501 /* Main.storyboard in Resources */,
 				877F4A2F1ED7E16800D33501 /* Assets.xcassets in Resources */,
 				878DE01F1EE64830004CA4FB /* img_bubble_popover.png in Resources */,
+				87053DCB1EF8EEC300996C30 /* img_lc_logo.png in Resources */,
 				878DE01E1EE64830004CA4FB /* img_bubble_page.png in Resources */,
 				878DE0121EE6439B004CA4FB /* Default-568h@2x.png in Resources */,
 			);
@@ -200,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87053DC71EF8DE6C00996C30 /* PopoverBackgroundView.swift in Sources */,
 				878DE0191EE643DD004CA4FB /* AppDelegate.swift in Sources */,
 				878DE0131EE6439B004CA4FB /* ViewController.swift in Sources */,
 				87683EA21ECB2384005E2F14 /* Popover.swift in Sources */,

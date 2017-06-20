@@ -18,7 +18,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     open var dataList = [LCTuple<T>]()
     open var size: CGSize = CGSize(width: 250, height: 219)
     open var arrowDirection: UIPopoverArrowDirection = .any
-    open var borderColor: UIColor = UIColor.clear
+    open var backgroundColor: UIColor = UIColor.clear
     open var borderWidth: CGFloat = 0
     open var cornerRadius: CGFloat = 10
     open var barHeight: CGFloat = 44
@@ -55,20 +55,21 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        addViews()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setProperties()
-    }
+        addViews()
+    }    
     
     // MARK: - Private Methods
     
     // Set position for the popover coordinating with the sender
     fileprivate func setSourceView(_ sender: UIView) {
         guard let popoverPC = popoverPresentationController else { return }
+//        popoverPC.popoverBackgroundViewClass = PopoverBackgroundView.self
         popoverPC.sourceView = sender
         popoverPC.sourceRect = sender.bounds
         popoverPC.delegate = self
@@ -78,15 +79,18 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     fileprivate func setProperties() {
         guard let popoverPC = popoverPresentationController else { return }
         popoverPC.permittedArrowDirections = arrowDirection
-//        popoverPC.backgroundColor = borderColor
+        popoverPC.backgroundColor = backgroundColor
+        
 //        popoverPC.containerView?.layer
         
         // Set corner radius
-        view.layer.cornerRadius = cornerRadius
-        view.clipsToBounds = true
-        view.layer.masksToBounds = false
-        view.layer.borderColor = borderColor.cgColor
+        view.superview?.layer.cornerRadius = 0
+//        view.clipsToBounds = true
+//        view.layer.masksToBounds = false
         view.layer.borderWidth = borderWidth
+        view.layer.borderColor = backgroundColor.cgColor
+//        view.layer.shadowColor = UIColor.clear.cgColor
+
 //        view.superview?.layer.cornerRadius = cornerRadius
         
     }
@@ -114,8 +118,8 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: size.width, height: barHeight))
         let navItem = UINavigationItem()
         navItem.titleView = titleLabel
-        navBar.setItems([navItem], animated: true)
-//        navBar.barTintColor = barColor
+        navBar.setItems([navItem], animated: false)
+//        navBar.barTintColor = backgroundColor
         view.addSubview(navBar)
     }
     
@@ -127,6 +131,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.separatorInset.left = 0
+        tableView.separatorColor = backgroundColor
         view.addSubview(tableView)
     }
    
