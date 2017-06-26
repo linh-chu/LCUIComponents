@@ -31,16 +31,16 @@ class ViewController: UIViewController {
                          (key: 3, value:"Ginger"),
                          (key: 4, value:"Turmeric"),
                          (key: 5, value:"Tamarind")]
-        lcVC.size = CGSize(width: 250, height: 219)
-        lcVC.arrowDirection = .up
-        lcVC.backgroundColor = .orange
-        lcVC.borderWidth = 2
-        lcVC.cornerRadius = 20
-        lcVC.barHeight = 44
-        lcVC.titleFont = UIFont.boldSystemFont(ofSize: 19)
-        lcVC.titleColor = .orange
-        lcVC.textFont = UIFont(name: "HelveticaNeue-MediumItalic", size: 17) ?? UIFont.systemFont(ofSize: 17)
-        lcVC.textColor = .black
+//        lcVC.size = CGSize(width: 250, height: 219)
+//        lcVC.arrowDirection = .up
+//        lcVC.backgroundColor = .blue
+//        lcVC.borderColor = .blue
+//        lcVC.borderWidth = 1
+//        lcVC.barHeight = 44
+//        lcVC.titleFont = UIFont.boldSystemFont(ofSize: 19)
+//        lcVC.titleColor = .blue
+//        lcVC.textFont = UIFont(name: "HelveticaNeue-MediumItalic", size: 17) ?? UIFont.systemFont(ofSize: 17)
+//        lcVC.textColor = .black
         
         present(lcVC, animated: true, completion: nil)
     }

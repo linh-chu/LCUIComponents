@@ -18,13 +18,12 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     open var dataList = [LCTuple<T>]()
     open var size: CGSize = CGSize(width: 250, height: 219)
     open var arrowDirection: UIPopoverArrowDirection = .any
-    open var backgroundColor: UIColor = UIColor.clear
-    open var borderWidth: CGFloat = 0
-    open var cornerRadius: CGFloat = 20
+    open var backgroundColor: UIColor = .orange
+    open var borderColor: UIColor = .orange
+    open var borderWidth: CGFloat = 2
     open var barHeight: CGFloat = 44
-//    open var barColor: UIColor = UIColor(colorLiteralRed: 235/255, green: 235/255, blue: 241/255, alpha: 1)
     open var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 19)
-    open var titleColor: UIColor = .black
+    open var titleColor: UIColor = .orange
     open var textFont: UIFont = UIFont.systemFont(ofSize: 17)
     open var textColor: UIColor = .black
     open var selectedData: LCTuple<T>?
@@ -36,6 +35,8 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     fileprivate let cellIdentifier = "Cell"
     
     // Private properties
+    fileprivate var navigationBar: UINavigationBar!
+    fileprivate var titleLabel: UILabel!
     fileprivate var tableView: UITableView!
     
     init(for sender: UIView, title: String = "", didSelectDataHandler: ((_ selectedData: LCTuple<T>?) -> ())? = nil) {
@@ -55,26 +56,19 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     override open func viewDidLoad() {
         super.viewDidLoad()
         
+        preferredContentSize = size
+        addNavigationBar()
+        addTableView()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
-        preferredContentSize = size
+        
         setProperties()
-        addViews()
-    }
-    
-    override open func loadView() {
-        super.loadView()
-        
-        
     }
     
     override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
-        
     }
     
     // MARK: - Private Methods
@@ -94,92 +88,54 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         popoverPC.permittedArrowDirections = arrowDirection
         popoverPC.backgroundColor = backgroundColor
         
-        // Set corner radius
-        
-//        view.superview?.roundCorners([.allCorners], radius: cornerRadius)
         view.superview?.layer.cornerRadius = 0
-        view.superview?.layer.borderWidth = 2
-        view.superview?.layer.borderColor = backgroundColor.cgColor
+        view.superview?.layer.borderWidth = borderWidth
+        view.superview?.layer.borderColor = borderColor.cgColor
         
-//        view.superview?.backgroundColor = backgroundColor
-        
-//        view.superview?.layer.shadowColor = UIColor.clear.cgColor
-//        view.superview?.layer.masksToBounds = true
-        
-//        view.superview?.clipsToBounds = true        
-//        view.superview?.layer.masksToBounds = true
-        
-//        view.clipsToBounds = true
-//        view.layer.masksToBounds = false
-        
-//        view.frame = (view.superview?.frame)!
-//        view.bounds = (view.superview?.bounds)!
-//        
-//        preferredContentSize = view.frame.size
-//        size = view.frame.size
-//        view.layer.cornerRadius = cornerRadius
-        
-//        let s = CGSize(width: size.width + borderWidth, height: size.height + borderWidth)
-//        view.frame = CGRect(origin: view.frame.origin, size: s)
-//        view.layer.borderWidth = borderWidth
-//        view.layer.borderColor = backgroundColor.cgColor
-//        view.roundCorners([.bottomLeft, .bottomRight], radius: cornerRadius)
-//        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-//        view.layer.shadowColor = UIColor.clear.cgColor
-
-//        view.superview?.layer.cornerRadius = cornerRadius
-        
-//        popoverPC.popoverBackgroundViewClass = PopoverBackgroundView.self
-//        preferredContentSize = CGSize(width: 248, height: 217)
-//        view.superview?.frame = CGRect(x: 0, y: 0, width: 252, height: 221)
-//        print(view)
-//        print(view.frame)
-//        print(view.superview)
-//        print(view.superview?.frame)
-        
+        setNavigationBar()
+        setTableView()
     }
     
     // Add navigation bar and table view
-    fileprivate func addViews() {
-        
-        addNavigationBar()
-        addTableView()
-    }
-    
     fileprivate func addNavigationBar() {
         if barHeight == 0 { return }
         
-        // Set title
-        let titleLabel = UILabel()
-        titleLabel.backgroundColor = UIColor.clear
-        titleLabel.font = titleFont
-        titleLabel.textColor = titleColor
-        titleLabel.textAlignment = .center
-        titleLabel.text = self.title ?? ""
-        titleLabel.sizeToFit()
-        
-        // Set navigation bar
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: size.width, height: barHeight))
-        let navItem = UINavigationItem()
-        navItem.titleView = titleLabel
-        navBar.setItems([navItem], animated: false)
-//        navBar.layer.cornerRadius = cornerRadius
-//        navBar.barTintColor = backgroundColor
-        view.addSubview(navBar)
+        navigationBar = UINavigationBar()
+        titleLabel = UILabel()
+        navigationBar.addSubview(titleLabel)
+        view.addSubview(navigationBar)
     }
     
     fileprivate func addTableView() {
-        // Set table view
-        let tableFrame = CGRect(x: 0, y: barHeight, width: size.width, height: size.height - barHeight)
-        tableView = UITableView(frame: tableFrame, style: .plain)
+        tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        view.addSubview(tableView)
+    }
+    
+    // Set navigation bar properties
+    fileprivate func setNavigationBar() {
+        if barHeight == 0 { return }
+        
+        // Set navigation bar
+        navigationBar.frame = CGRect(x: 0, y: 0, width: size.width, height: barHeight)
+        
+        // Set title
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.text = self.title ?? ""
+        titleLabel.font = titleFont
+        titleLabel.textColor = titleColor
+        titleLabel.sizeToFit()
+        titleLabel.textAlignment = .center
+        titleLabel.frame.origin = CGPoint(x: (size.width - titleLabel.frame.width)/2, y: (barHeight - titleLabel.frame.height)/2)
+    }
+    
+    // Set table view properties
+    fileprivate func setTableView() {
+        tableView.frame = CGRect(x: 0, y: barHeight, width: size.width, height: size.height - barHeight)
         tableView.separatorInset.left = 0
         tableView.separatorColor = backgroundColor
-//        tableView.roundCorners([.bottomLeft, .bottomRight], radius: cornerRadius)                        
-        view.addSubview(tableView)
     }
    
     // MARK: - TableView Delegate Methods
@@ -206,15 +162,6 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     
     open func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
-    }
-}
-
-extension UIView {
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
     }
 }
 
