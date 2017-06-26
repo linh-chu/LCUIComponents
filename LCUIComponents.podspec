@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 
     s.name             = 'LCUIComponents'
-    s.version          = '1.1.2'
-    s.summary          = 'LCUIComponents iOS SDK 1.1.2'
+    s.version          = '1.1.3'
+    s.summary          = 'LCUIComponents iOS SDK 1.1.3'
     s.description      = <<-DESC
-The framework supports UI components showing on top of the current content view.
+The framework supports UI components such as popover showing on top of the current content view.
 DESC
 
     s.homepage         = 'https://github.com/linhcn/LCUIComponents'
