@@ -39,7 +39,7 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
     fileprivate var titleLabel: UILabel!
     fileprivate var tableView: UITableView!
     
-    init(for sender: UIView, title: String = "", didSelectDataHandler: ((_ selectedData: LCTuple<T>?) -> ())? = nil) {
+    public init(for sender: UIView, title: String = "", didSelectDataHandler: ((_ selectedData: LCTuple<T>?) -> ())? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .popover
