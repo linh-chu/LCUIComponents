@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         lcVC.arrowDirection = .up
         lcVC.backgroundColor = .orange
         lcVC.borderWidth = 2
-        lcVC.cornerRadius = 10
+        lcVC.cornerRadius = 20
         lcVC.barHeight = 44
         lcVC.titleFont = UIFont.boldSystemFont(ofSize: 19)
         lcVC.titleColor = .orange
