@@ -54,8 +54,8 @@ class ViewController: UIViewController {
             popover = LCPopover<Int>(for: sender, title: title) { [unowned self] selectedData in
                 
                 guard let value = selectedData?.value else { return }
-                // After data has been selected
-                if title == self.titleSpice {
+                // After data has been selected. Using `title` for checking isn't a good approach, feel free to use anything else such as a boolean variable
+                if self.popover.title == self.titleSpice {
                     self.lblSelectedData.text = value
                 } else {
                     self.tfPopover.text = value
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         }
         
         // Reset the data list and reload data if needed
+        popover.title = title
         if title == self.titleSpice {
             popover.dataList = spiceList
         } else {

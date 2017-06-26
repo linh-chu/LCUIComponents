@@ -70,6 +70,10 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewWillLayoutSubviews()
     }
     
+    override open func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()        
+    }
+    
     // Set position for the popover coordinating with the sender
     open func setSourceView(_ sender: UIView) {
         guard let popoverPC = popoverPresentationController else { return }
@@ -95,18 +99,21 @@ open class LCPopover<T>: UIViewController, UITableViewDelegate, UITableViewDataS
         popoverPC.backgroundColor = backgroundColor
         
         preferredContentSize = size
-        print(view.superview?.frame)
+        view.frame.size = size
+        print(preferredContentSize)
         print(view.frame)
         print(tableView.frame)
+        print(tableView.contentSize)
         view.superview?.layer.cornerRadius = 0
         view.superview?.layer.borderWidth = borderWidth
         view.superview?.layer.borderColor = borderColor.cgColor
         
         setNavigationBar()
         setTableView()
-        print(view.superview?.frame)
+        print(preferredContentSize)
         print(view.frame)
         print(tableView.frame)
+        print(tableView.contentSize)
     }
     
     // Add navigation bar and table view
