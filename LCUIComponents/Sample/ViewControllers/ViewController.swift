@@ -65,12 +65,12 @@ class ViewController: UIViewController {
             // Set popover properties
             popover.size = CGSize(width: 250, height: 219)
             popover.arrowDirection = .down
-            popover.backgroundColor = .blue
-            popover.borderColor = .blue
-            popover.borderWidth = 1
+            popover.backgroundColor = .orange
+            popover.borderColor = .orange
+            popover.borderWidth = 2
             popover.barHeight = 44
             popover.titleFont = UIFont.boldSystemFont(ofSize: 19)
-            popover.titleColor = .blue
+            popover.titleColor = .orange
             popover.textFont = UIFont(name: "HelveticaNeue-MediumItalic", size: 17) ?? UIFont.systemFont(ofSize: 17)
             popover.textColor = .black
         } else {
