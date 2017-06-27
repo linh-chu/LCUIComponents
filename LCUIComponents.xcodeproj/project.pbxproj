@@ -17,6 +17,7 @@
 		878DE01B1EE64485004CA4FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877F4A271ED7E16800D33501 /* LaunchScreen.storyboard */; };
 		878DE01E1EE64830004CA4FB /* img_bubble_page.png in Resources */ = {isa = PBXBuildFile; fileRef = 878DE01C1EE64830004CA4FB /* img_bubble_page.png */; };
 		878DE01F1EE64830004CA4FB /* img_bubble_popover.png in Resources */ = {isa = PBXBuildFile; fileRef = 878DE01D1EE64830004CA4FB /* img_bubble_popover.png */; };
+		87C95DDA1F021DC9002115CA /* PopoverSamplesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C95DD91F021DC9002115CA /* PopoverSamplesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		878DE0181EE643DD004CA4FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		878DE01C1EE64830004CA4FB /* img_bubble_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_bubble_page.png; sourceTree = "<group>"; };
 		878DE01D1EE64830004CA4FB /* img_bubble_popover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_bubble_popover.png; sourceTree = "<group>"; };
+		87C95DD91F021DC9002115CA /* PopoverSamplesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSamplesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				878DE0101EE6439B004CA4FB /* ViewController.swift */,
+				87C95DD91F021DC9002115CA /* PopoverSamplesVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				878DE0191EE643DD004CA4FB /* AppDelegate.swift in Sources */,
 				878DE0131EE6439B004CA4FB /* ViewController.swift in Sources */,
+				87C95DDA1F021DC9002115CA /* PopoverSamplesVC.swift in Sources */,
 				87683EA21ECB2384005E2F14 /* Popover.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
