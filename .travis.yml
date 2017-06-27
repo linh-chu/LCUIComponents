@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode8.3.3
 xcode_project: LCUIComponents.xcodeproj
 xcode_scheme: LCUIComponents
-xcode_sdk: iphonesimulator10.0
+xcode_sdk: iphonesimulator9.0
