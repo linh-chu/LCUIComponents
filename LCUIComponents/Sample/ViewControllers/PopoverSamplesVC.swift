@@ -1,6 +1,4 @@
 
-
-import LCUIComponents
 import UIKit
 
 class PopoverSamplesVC: UIViewController {
