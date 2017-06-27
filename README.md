@@ -100,7 +100,7 @@ use_frameworks!
 pod 'LCUIComponents'
 ```
 
-### Manually as Embedded Framework
+### Manually Embedded
 
 Simply download and add the `Popover.swift` file from `Source` path to your project.
 
