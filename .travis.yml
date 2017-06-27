@@ -1,3 +1,5 @@
-language: node_js
-node_js:
-  - 0.12
+language: objective-c
+osx_image: xcode8.3.3
+xcode_project: LCUIComponents.xcodeproj
+xcode_scheme: LCUIComponents
+xcode_sdk: iphonesimulator10.0
