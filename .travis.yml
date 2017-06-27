@@ -1,3 +1,5 @@
-language: node_js
-node_js:
-  - 0.12
+language: objective-c
+osx_image: xcode8.3.3
+xcode_project: LCUIComponents.xcodeproj
+env:
+  - DESTINATION="OS=10.2,name=iPhone 7" SCHEME="LCUIComponents" SDK=iphonesimulator
